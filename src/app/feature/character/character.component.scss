@@ -1,0 +1,67 @@
+.material-icons {
+    font-size: 50px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.img-form {
+    padding-left: 24px;
+}
+
+.width-size {
+    width: 100%;
+}
+
+mat-card {
+    width: 300px;
+}
+
+.form-conatiner {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 48px;
+    .inner-form-conatiner {
+        display: flex;
+        justify-content: space-around;
+        .form-space {
+            margin-top: 24px;
+        }
+    }
+}
+
+.button-conatiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    margin-top: 24px;
+}
+
+.image-container {
+    padding-top: 48px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.image-border{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.image-name {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+    cursor: pointer;
+    /* text-decoration: underline; */
+    color: cornflowerblue;
+}

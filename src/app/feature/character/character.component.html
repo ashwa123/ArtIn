@@ -1,0 +1,191 @@
+<div>
+
+    <div class="image-container">
+        <div *ngFor = "let image of profileimageArray; let i = index">
+                <div> 
+                    <img [src] = "image" widhth = "100px" height="100px" class="image-border">
+                    <div class="image-name"><a class="pointer" (click)="open(characternames[i])">{{characternames[i]}}</a></div>
+                </div>
+        </div>
+    </div>
+    <!-- <span *ngFor="let name of characternames">
+        {{name}}
+    </span> -->
+
+    <div class="icon-container">
+        <button mat-icon-button color="primary" (click)="display()">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+
+    <div *ngIf="isdisplayed" class="form-conatiner">
+        <div class="img-form">
+            <form [formGroup]="imageForm" enctype="multipart/form-data" imageForm = "ngForm">
+                <img  [src] = "imageProfileUrl" height= "150" width= "350">
+                <input type="file"  formControlName = "profileimage" id = "profileimage" (input) = "profile($event)" >
+            </form>
+        </div>
+
+        <div class="width-size">
+            <form [formGroup]="characterForm" characterForm="ngForm" class="inner-form-conatiner">
+                <div>
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>Charateristics</mat-card-title>
+                        </mat-card-header>
+    
+                        <mat-card-content>
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput formControlName="name" placeholder="Enter Character's Name" (input) = "setName()">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Age</mat-label>
+                                    <input matInput formControlName="age" placeholder="Enter Character's Age">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Work</mat-label>
+                                    <input matInput formControlName="work" placeholder="Enter Character's Work">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>About</mat-label>
+                                    <textarea matInput formControlName="about" placeholder="About..."></textarea>
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Role</mat-label>
+                                    <input matInput formControlName="role" placeholder="Enter Character's Role">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Behaviour</mat-label>
+                                    <input matInput formControlName="behaviour" placeholder="Enter Character's Behaviour">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Likes</mat-label>
+                                    <input matInput formControlName="likes" placeholder="Enter Character's Likes">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Dislikes</mat-label>
+                                    <input matInput formControlName="dislikes" placeholder="Enter Character's Dislikes">
+                                </mat-form-field>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div>
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>Appearance</mat-card-title>
+                        </mat-card-header>
+    
+                        <mat-card-content>
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Eye Color</mat-label>
+                                    <input matInput formControlName="eyecolor" placeholder="Enter Character's Eye Color">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Hair Color</mat-label>
+                                    <input matInput formControlName="haircolor" placeholder="Enter Character's Hair Color">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Skintone</mat-label>
+                                    <input matInput formControlName="skintone" placeholder="Enter Character's Skin tone">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Hair Style</mat-label>
+                                    <input matInput formControlName="hairstyle" placeholder="Enter Character's Hair Style">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Outfit</mat-label>
+                                    <input matInput formControlName="outfit" placeholder="Enter Character's Outfit">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Beard</mat-label>
+                                    <input matInput formControlName="beard" placeholder="Enter Character's Beard">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Height</mat-label>
+                                    <input matInput formControlName="height" placeholder="Enter Character's Height">
+                                </mat-form-field>
+                            </div>
+    
+                            <div>
+                                <mat-form-field appearance="outline" class="width-size">
+                                    <mat-label>Body Type</mat-label>
+                                    <input matInput formControlName="body" placeholder="Enter Character's Body type">
+                                </mat-form-field>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card class="form-space">
+                        <mat-card-header>
+                            <mat-card-title>Family</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field appearance="outline" class="width-size">
+                                <textarea matInput formControlName="family" placeholder="Family Members"></textarea>
+                            </mat-form-field>
+                        </mat-card-content>
+                    </mat-card>
+
+                    <mat-card class="form-space">
+                        <mat-card-header>
+                            <mat-card-title>Friends</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <mat-form-field appearance="outline" class="width-size">
+                                <textarea matInput formControlName="friends" placeholder="Friends"></textarea>
+                            </mat-form-field>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="isdisplayed" class="button-conatiner">
+        <button mat-raised-button color="primary" (click)="submit()">Save</button>
+    </div>
+</div>

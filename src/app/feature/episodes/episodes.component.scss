@@ -1,0 +1,36 @@
+.font-style {
+    font-family:cursive;
+    font-style: italic;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.font-container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    height: 100%;
+    margin-top: 48px;
+}
+
+.button-container {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.episode-container {
+    margin-top: 48px;
+    padding-left: 24px;
+}
+
+
+.material-icons {
+    font-size: 20px;
+}
+
+.icon-container {
+    display: flex;
+}

@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="button-conatiner">
+    <button mat-raised-button (click)="openCreatedialog()" color="warn">Create Comics</button>
+</div>
+
+<div class="title-conatiner">
+    <h1>My Comics</h1>
+    <ul *ngIf="comicList?.resp?.comic?.length">
+        <li *ngFor="let comic of comicList.resp.comic; let i = index">
+            <div class="comics-container">
+
+                <div *ngIf = "isedittable && i == selectedvariable">
+                    <mat-form-field appearance="outline">
+                        <input matInput [(ngModel)] = "titlename" placeholder="{{comic.title}}">
+                    </mat-form-field>
+                </div>
+
+                <a mat-button *ngIf = "!isedittable || i != selectedvariable" (click) = "navigate(comic)">{{comic.title}}</a>
+                
+                <div>
+                    <button *ngIf = "!isSaveicon" mat-icon-button (click) = "edit(i)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button *ngIf = "isSaveicon" mat-icon-button (click) = "saveIcon(titlename, comic.title, i)">
+                        <mat-icon>save</mat-icon>
+                    </button>
+
+                    <button mat-icon-button (click) = "delete(comic.title)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

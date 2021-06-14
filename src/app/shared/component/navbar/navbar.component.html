@@ -1,0 +1,44 @@
+<div>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>ArtIn</span>
+            <span class="example-spacer"></span>
+            <div fxShow="true" fxHide.lt-md="true">
+                <a href="#" mat-button>
+                    Home
+                </a>
+                <a href="#" mat-button>
+                    {{this.user.firstname}}
+                </a>
+                <a href="#" mat-button>
+                    Log out
+                </a>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav #sidenav>
+            <mat-nav-list class="list">
+                <div>
+                    <a href="#" mat-button>
+                        <h3>Home</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" mat-button>
+                        <h3>{{this.user.firstname}}</h3>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" mat-button>
+                        <h3>Log out</h3>
+                    </a>
+                </div>
+            </mat-nav-list>
+        </mat-sidenav>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,36 @@
+<div>
+    <div class="button-container">
+        <button mat-raised-button color="warn" (click)="openDialog()">Create Chapters</button>
+    </div>
+
+    <div class="chapter-container">
+        <h2>Chapters</h2>
+        <ul>
+            <li *ngFor="let chapters of chapters; let i = index">
+                <div class="icon-container">
+                    <div *ngIf = "isedittable && i == selectedvariable">
+                        <mat-form-field appearance="outline">
+                            <input matInput [(ngModel)] = "newChaptername" placeholder="{{chapters}}">
+                        </mat-form-field>
+                    </div>
+    
+                    <a *ngIf = "!isedittable || i != selectedvariable" mat-button (click) = "navigate(chapters)">{{chapters}}</a>
+    
+                    <div>
+                        <button *ngIf = "!isSaveicon" mat-icon-button (click) = "edit(i)">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+    
+                        <button *ngIf = "isSaveicon" mat-icon-button (click) = "saveIcon(newChaptername, chapters, i)">
+                            <mat-icon>save</mat-icon>
+                        </button>
+    
+                        <button mat-icon-button (click) = "delete(chapters)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

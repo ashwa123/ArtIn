@@ -1,0 +1,105 @@
+<div class="body-height">
+    <div class="body-height card-container">
+        <mat-card class="form-container mat-elevation-z8">
+            <mat-card-header>
+                <mat-card-title>Sign Up</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+                <form [formGroup]="signupForm" signupForm="ngForm">
+                    <div class="dual-form-field">
+                        <mat-form-field appearance="outline" class="form-field form-field-spacing">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstname" placeholder="Enter First Name" required>
+                            <mat-error *ngIf="signupForm.controls.firstname.errors?.required && signupForm.controls.firstname.dirty">
+                                Firstname is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastname" placeholder="Enter Last Name" required>
+                            <mat-error *ngIf="signupForm.controls.lastname.errors?.required && signupForm.controls.lastname.dirty">
+                                Lastname is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="outline" class="single-form-field">
+                            <mat-label>User Name</mat-label>
+                            <input matInput formControlName="username" placeholder="Enter User Name" required>
+                            <mat-error *ngIf="signupForm.controls.username.errors?.required && signupForm.controls.username.dirty">
+                                Username is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="dual-form-field">
+                        <mat-form-field appearance="outline" class="form-field form-field-spacing">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Enter Password" required>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="signupForm.controls.password.errors?.required && signupForm.controls.password.dirty">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="!signupForm.controls.password.errors?.required && signupForm.controls.password.errors?.passwordError && signupForm.controls.password.touched">
+                                {{signupForm.controls.password.errors.passwordError.message}}
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="form-field">
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput type="password" formControlName="confirmpassword" placeholder="Enter Password" (input)="onPasswordInput()" required>
+                            <mat-error *ngIf="confirmpassword.invalid && !confirmpassword.hasError('required')">Passwords don't match</mat-error>
+                            <mat-error *ngIf="signupForm.controls.confirmpassword.errors?.required && signupForm.controls.confirmpassword.dirty">
+                                Password is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="outline" class="single-form-field">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="emailid" placeholder="Enter Email" [errorStateMatcher]="matcher" required>
+                            <mat-error *ngIf="signupForm.controls.emailid.errors?.required && signupForm.controls.emailid.dirty">
+                                Email is <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="!signupForm.controls.emailid.errors?.required && signupForm.controls.emailid.errors?.emailError && signupForm.controls.emailid.touched">
+                                {{signupForm.controls.emailid.errors.emailError.message}}
+                              </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="outline" class="single-form-field">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="DOB" placeholder="Enter DOB">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="outline" class="single-form-field">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput formControlName="phoneno" placeholder="Enter Phone Number">
+                            <mat-error *ngIf="signupForm.controls.phoneno.errors?.required && signupForm.controls.phoneno.dirty">
+                                Phone Number is <strong>required</strong>
+                            </mat-error>
+                            <mat-error *ngIf="signupForm.controls.phoneno.errors?.maxlength && signupForm.controls.phoneno.dirty">
+                                Should not exceed more than 10 characters
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                </form>
+
+                <div class="button-container">
+                    <button mat-raised-button [routerLink]="['/login']">Cancel</button>
+                    <button mat-raised-button [disabled]="signupForm.invalid" class="signup-button" color="primary" (click)="register()">Sign In</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

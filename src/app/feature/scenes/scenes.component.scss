@@ -1,0 +1,82 @@
+.font-style{
+    font-family:cursive;
+    font-style: italic;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.font-container{
+    display: flex;
+    justify-content: center;
+    padding: 60px;;
+}
+
+.header{
+    padding-left: 10px;
+}
+
+.plus{
+    padding: 20px;
+}
+
+.textarea{
+    display: flex;
+    flex-direction: column;
+}
+
+.scenes-container{
+    display : flex;
+    flex-wrap: wrap;
+
+    .scenes{
+        margin: 12px;
+        width: 350px;
+    }
+}
+
+.save-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.story-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.story-align{
+    padding-top: 24px;
+}
+
+.table-field {
+    margin: 0;
+    width: 100%
+}
+
+.text-field {
+    width: 50%;
+    padding-left: 24px;
+}
+
+.spacing {
+    padding: 24px;
+}
+
+.place {
+    ::placeholder { 
+        color:black;
+        opacity: 1; 
+      }
+}
+
+.form-width {
+    width: 100%;
+}
+  

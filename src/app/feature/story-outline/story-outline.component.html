@@ -1,0 +1,19 @@
+<div>
+    <div class="border">
+        <form [formGroup]="storyForm" storyForm="ngForm">
+            <mat-form-field class="content" appearance="outline">
+                <textarea matInput
+                 formControlName="storyoutline"
+                 cdkTextareaAutosize
+                 cdkAutosizeMinRows="40"
+                 cdkAutosizeMaxRows="200"
+                 ></textarea>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div class="button-container">
+        <button mat-raised-button color="accent"  
+        (click) = "submitstory()">Finalise</button>
+    </div>
+</div>

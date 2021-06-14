@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<div class="font-container">
+    <div class="font-style">{{ episodeState.episodename }}</div>
+</div>
+
+<div class="save-container">
+    <button mat-raised-button color="primary" (click) = "save()">Save Scenes</button>
+</div>
+
+<div  *ngIf = "!episodeheaderview" class="spacing">
+    <form [formGroup] = "episodeoverForm" ngForm = episodeoverForm>
+        <mat-form-field appearance="outline" class="form-width">
+            <mat-label>Episode Overview</mat-label>
+            <textarea matInput formControlName = "episodeoverview" placeholder="Epiose Overview"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+
+<div  *ngIf = "episodeheaderview" class="spacing place">
+    <form [formGroup] = "episodedataForm" ngForm = episodedataForm>
+        <mat-form-field appearance="outline" class="form-width">
+            <textarea matInput formControlName = "episodedataoverview" placeholder="{{episodeheaderview}}"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+
+<div *ngIf = "!storydata">
+    <form [formGroup]= sceneForm sceneForm=ngForm enctype="multipart/form-data" class="spacing">
+        <div id="planScene" formArrayName="Scenes">
+            <div *ngFor="let story of scenestoryArray.controls; let i = index" [formGroupName]="i" class="scenes spacing">
+                <mat-card>
+                    <mat-card-content>
+                        <table class = "table-field">
+                            <tr>
+                                <td>
+                                    <mat-form-field appearance="outline" class="form-width">
+                                        <mat-label>Scene</mat-label>
+                                        <input matInput aria-colspan="4"  formControlName="scene" id="scene" placeholder="Enter the scene">
+                                    </mat-form-field>
+                                </td>
+                                <td class="text-field">
+                                    <mat-form-field appearance="outline" class="form-width">
+                                        <mat-label>Location</mat-label>
+                                        <input matInput formControlName="location" id="location" placeholder="Enter the location">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class = "table-field">
+                            <tr>
+                                <mat-form-field appearance="outline" class="form-width">
+                                    <mat-label>Conversation</mat-label>
+                                    <textarea matInput formControlName="conversation" placeholder="conversation" rows="5" cols="20"></textarea>
+                                </mat-form-field>
+                            </tr>
+                        </table>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    
+        <div class="plus">
+            <mat-icon (click)="addscene()">add</mat-icon>
+        </div>
+    </form>
+</div>
+
+
+<div *ngIf = "storydata" class="spacing">
+    <form [formGroup] = "StoryForm" StoryForm="ngForm" class="spacing">
+        <div *ngFor="let story of storydata" class="scenes spacing">
+            <mat-card>
+                <mat-card-content class="place">
+                    <table class = "table-field">
+                        <tr>
+                            <td>
+                                <mat-form-field appearance="outline" class="form-width">
+                                    <input matInput aria-colspan="4"  formControlName="scene" id="scene" placeholder="{{story.scene}}">
+                                </mat-form-field>
+                            </td>
+                            <td class="text-field">
+                                <mat-form-field appearance="outline" class="form-width">
+                                    <input matInput formControlName="location" id="location" placeholder="{{story.location}}">
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class = "table-field">
+                        <tr>
+                            <mat-form-field appearance="outline" class="form-width">
+                                <textarea matInput formControlName="conversation" placeholder="{{story.conversation}}" rows="5" cols="20"></textarea>
+                            </mat-form-field>
+                        </tr>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </form>
+</div>

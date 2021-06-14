@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="content">
+    <div class="font-container">
+        <div class="font-style">{{ chapterState.chaptername }}</div>
+    </div>
+
+    <div class="button-container">
+        <button mat-raised-button color="warn" (click)="createEpisode()">Create Episode</button>
+    </div>
+
+    <div class="episode-container">
+        <h4>Episodes</h4>
+        <div>
+            <ul>
+                <li *ngFor="let episode of episodes; let i = index">
+                    <div class="icon-container">
+                        <div *ngIf = "isedittable && i == selectedvariable">
+                            <mat-form-field appearance="outline">
+                                <input matInput [(ngModel)] = "newEpisodename" placeholder="{{episode}}">
+                            </mat-form-field>
+                        </div>
+
+                        <a *ngIf = "!isedittable || i != selectedvariable" mat-button (click)="navigate(episode)">{{ episode }}</a>
+
+                        <div>
+                            <button *ngIf = "!isSaveicon" mat-icon-button (click) = "edit(i)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+        
+                            <button *ngIf = "isSaveicon" mat-icon-button (click) = "saveIcon(newEpisodename, episode, i)">
+                                <mat-icon>save</mat-icon>
+                            </button>
+        
+                            <button mat-icon-button (click) = "delete(episode)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

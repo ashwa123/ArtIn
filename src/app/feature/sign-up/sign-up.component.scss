@@ -1,0 +1,38 @@
+.body-height {
+    height: 100%;
+}
+
+.card-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 500px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.signup-button {
+    margin-left: 24px;
+}
+
+.dual-form-field {
+    display: flex;
+    justify-content: space-between;
+    .form-field {
+        width: 100%;
+    }
+    .form-field-spacing {
+        padding-right: 24px;
+    }
+}
+
+.single-form-field {
+    width: 100%;
+}

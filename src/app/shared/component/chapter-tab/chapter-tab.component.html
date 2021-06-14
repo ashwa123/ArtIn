@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<div class="font-container">
+    <span class="font-style">{{comicstate.title}}</span>
+</div>
+
+<div>
+    <mat-tab-group mat-stretch-tabs [selectedIndex]="1">
+        <mat-tab label="Story Outline">
+            <app-story-outline></app-story-outline>
+        </mat-tab>
+        <mat-tab label="Chapters">
+            <app-chapter></app-chapter>
+        </mat-tab>
+        <mat-tab label="Characters">
+            <app-character></app-character>
+        </mat-tab>
+      </mat-tab-group>
+</div>
